@@ -2,6 +2,19 @@ import streamlit as st
 import snowflake.connector as sc
 import pandas as pd
 
+def connection():
+    try:
+        con = sc.connect(
+        user="Daryl",
+        password="Daryl514",
+        account="hyoulpz-bc97192"
+        )
+        if con is None:
+            st.warning("Vos information de connection a snowflake sont incorrect")
+    except:
+        st.warning("Vos information de connection a snowflake sont incorrect")
+    return con
+
 def main():
     try:
         con = sc.connect(
